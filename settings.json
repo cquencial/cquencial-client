@@ -1,1 +1,7 @@
-{}
+{
+  "public": {
+    "remote": {
+      "url": "localhost:9999"
+    }
+  }
+}

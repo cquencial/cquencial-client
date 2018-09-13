@@ -1,9 +1,10 @@
 import { Meteor } from 'meteor/meteor'
 import { Routes } from '../../api/routes/Routes'
 import { Navigation } from '../../api/navigation/Navigation'
+import { Connection } from '../../api/connection/Connection'
 
-const loggedIn = () =>  Meteor.user() || Meteor.userId()
-const loggedOut = () => !Meteor.user() && !Meteor.userId()
+const loggedIn = () =>  Connection.userId()
+const loggedOut = () => !Connection.userId()
 
 function toLogin () {
   if (loggedOut()) {
