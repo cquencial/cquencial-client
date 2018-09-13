@@ -1,5 +1,4 @@
 import { Meteor } from 'meteor/meteor'
-import { Cquencial } from '../../api/cquencial/Cquencial'
 import { Routes } from '../../api/routes/Routes'
 import { Navigation } from '../../api/navigation/Navigation'
 
@@ -98,11 +97,3 @@ allRoutes.forEach(route => Routes.define(route.name, route))
 
 const navRoutes = allRoutes.filter(route => typeof route.navigation === 'function')
 navRoutes.forEach(navRoute => Navigation.register(navRoute.target, navRoute))
-
-Meteor.startup(() => {
-  Meteor.call(Cquencial.methods.setupRequired.name, (err, res) => {
-    if (res === true) {
-      Routes.to.setup.go()
-    }
-  })
-})
